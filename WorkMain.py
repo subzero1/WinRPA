@@ -1,23 +1,14 @@
-import win32api
-import win32con
-import win32gui
 import os
 import time
-import keyboard
 import pyautogui
 
 
 try:
     os.startfile("D:\\HDPClient\\CloudClient.exe")
-    time.sleep(3)
-    # 获取窗口句柄
-    handle = win32gui.FindWindowEx(0, 0, "QWidget", None)  # 桌面窗口的所有子窗口检索类名"Edit"，标题为None的窗口
-    print("請輸入賬號")
-    # 模拟鼠标在(1000, 500)位置进行点击操作
-    point = (960, 525)
-    win32api.SetCursorPos(point)#设置鼠标位置
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0)#按下鼠标左键
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 0, 0)#松开鼠标左键
+    os.system("netsh interface set interface \"WLAN2\" admin=disabled")
+    time.sleep(2)
+    pyautogui.click(960, 525)
+    print("請輸入密碼")
     pyautogui.typewrite('Huawei!@#')
     time.sleep(1)
     pyautogui.click(960, 625)
