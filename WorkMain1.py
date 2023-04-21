@@ -17,16 +17,19 @@ def print_GetForegroundWindow():
 try:
     os.system("netsh interface set interface \"WLAN2\" admin=disabled")
     handle = win32gui.FindWindowEx(0, 0, "QWidget", None)
-    if handle > 0:
-        os.system("taskkill /F /IM CloudClient.exe")
-        time.sleep(2)
-    os.startfile("D:\\HDPClient\\CloudClient.exe")
-    time.sleep(3)
+    if handle == 0:
+        os.startfile("D:\\HDPClient\\CloudClient.exe")
+    else:
+        win32gui.SetForegroundWindow(handle)
+        win32gui.ShowWindow(handle, win32con.SW_SHOW)
+        time.sleep(1)
+        pyautogui.click(1255, 730)
+    time.sleep(2)
     pyautogui.click(960, 525)
+    time.sleep(1)
     pyautogui.typewrite('Huawei!@#')
+    time.sleep(1)
     pyautogui.click(960, 625)
-    time.sleep(3)
-    os.system("netsh interface set interface \"WLAN2\" admin=enabled")
 except Exception as e:
     print("窗口句柄获取失败或是前台设置失败：{}".format(e))
 
