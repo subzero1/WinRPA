@@ -25,7 +25,7 @@ try:
     pyautogui.click(960, 525)
     pyautogui.typewrite('Huawei!@#')
     pyautogui.click(960, 625)
-    time.sleep(3)
+    time.sleep(16)
     os.system("netsh interface set interface \"WLAN2\" admin=enabled")
 except Exception as e:
     print("窗口句柄获取失败或是前台设置失败：{}".format(e))
