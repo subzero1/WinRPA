@@ -3,7 +3,6 @@ import win32con
 import win32gui
 import os
 import time
-import keyboard
 import pyautogui
 
 
